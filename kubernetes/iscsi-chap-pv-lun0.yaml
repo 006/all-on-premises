@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: iscsi-pv0
+spec:
+   storageClassName: zzz-iscsi
+   capacity:
+      storage: 64Gi
+   accessModes:
+   - ReadWriteOnce
+   iscsi:
+      chapAuthSession: false
+      targetPortal: 192.168.x.x:3260
+      portals: ['192.168.x.x:3260']
+      iqn: iqn.xxx-xxx.xxx:server
+      lun: 0
+      fsType: xfs
+      readOnly: false
